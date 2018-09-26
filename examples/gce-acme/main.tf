@@ -102,7 +102,7 @@ resource "google_compute_firewall" "default" {
     ports    = ["80", "443"]
   }
 
-  target_tags = ["${var.name}"]
+  target_service_accounts = ["${data.google_compute_default_service_account.default.email}"]
 }
 
 output "ssh" {
