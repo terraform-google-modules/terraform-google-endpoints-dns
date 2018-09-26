@@ -1,11 +1,11 @@
-/*
- * Copyright 2017 Google Inc.
+/**
+ * Copyright 2018 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,25 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-variable "acme_email" {}
-
-variable "acme_server" {
-  description = "ACME API server, set to https://acme-staging-v02.api.letsencrypt.org/directory to use the staging API."
-  default     = "https://acme-v02.api.letsencrypt.org/directory"
-}
-
-variable "region" {
-  default = "us-central1"
-}
-
-variable "zone" {
-  default = "us-central1-c"
-}
-
-variable "name" {
-  default = "tf-ep-dns"
-}
 
 provider "google" {
   region = "${var.region}"
@@ -59,6 +40,8 @@ module "cloud-ep-dns" {
   name        = "${var.name}"
   external_ip = "${google_compute_instance.default.network_interface.0.access_config.0.assigned_nat_ip}"
 }
+
+data "google_compute_default_service_account" "default" { }
 
 resource "google_compute_instance" "default" {
   name         = "${var.name}"
@@ -90,6 +73,11 @@ resource "google_compute_instance" "default" {
   metadata_startup_script = "${file("${path.module}/startup.sh")}"
 
   tags = ["${var.name}"]
+
+  service_account = {
+    email = "${data.google_compute_default_service_account.default.email}"
+    scopes = ["userinfo-email", "compute-ro"]
+  }
 }
 
 resource "google_compute_firewall" "ssh" {
@@ -101,7 +89,7 @@ resource "google_compute_firewall" "ssh" {
     ports    = ["22"]
   }
 
-  target_tags   = ["${var.name}"]
+  target_service_accounts = ["${data.google_compute_default_service_account.default.email}"]
   source_ranges = ["0.0.0.0/0"]
 }
 
