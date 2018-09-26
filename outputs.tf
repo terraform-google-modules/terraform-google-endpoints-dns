@@ -1,11 +1,11 @@
-/*
- * Copyright 2017 Google Inc.
+/**
+ * Copyright 2018 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,8 +29,8 @@ output "endpoint" {
   value       = "${local.service_name}"
 }
 
-output "service_name" {
-  description = "The address of the cloud endpoint. This can be used to create dependencies between resources, unlike the 'endpoint' output variable which is not dependent on the google_endpoints_service resource."
+output "endpoint_computed" {
+  description = "The address of the cloud endpoint. This is computed from the google_endpoints_service resource and can be used to create dependencies between resources."
   value       = "${google_endpoints_service.default.service_name}"
 }
 
