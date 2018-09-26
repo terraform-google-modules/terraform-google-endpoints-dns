@@ -67,6 +67,8 @@ terraform apply
 ./test.sh
 ```
 
+> This test can take 2-10 minutes to complete as the new DNS record is being propagated to the Cloud Shell instance.
+
 ## Cleanup
 
 1. Remove all resources created by terraform:
