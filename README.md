@@ -16,10 +16,11 @@ Some example use cases include:
 
 ## Usage
 
-```ruby
+```hcl
 module "cloud-ep-dns" {
   source      = "terraform-google-modules/endpoints-dns/google"
   project     = "${data.google_client_config.current.project}"
   name        = "myservice"
   external_ip = "${google_compute_instance.default.network_interface.0.access_config.0.assigned_nat_ip}"
 }
+```
