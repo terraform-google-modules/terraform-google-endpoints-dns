@@ -15,7 +15,6 @@
  */
 
 provider "google" {
-  region = var.region
 }
 
 data "google_client_config" "current" {
@@ -23,7 +22,7 @@ data "google_client_config" "current" {
 
 resource "google_compute_network" "default" {
   name                    = var.name
-  auto_create_subnetworks = "false"
+  auto_create_subnetworks = false
 }
 
 resource "google_compute_subnetwork" "default" {
