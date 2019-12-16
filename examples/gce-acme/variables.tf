@@ -15,7 +15,7 @@
  */
 
 variable "acme_email" {
-    description = "Email to send ACME renewal notifications to."
+  description = "Email to send ACME renewal notifications to."
 }
 
 variable "acme_server" {
@@ -25,15 +25,15 @@ variable "acme_server" {
 
 variable "region" {
   description = "Region to configure the provider and create resources in."
-  default = "us-central1"
+  default     = "us-central1"
 }
 
 variable "zone" {
   description = "Zone to create resources like the subnetwork and compute_instance."
-  default = "us-central1-c"
+  default     = "us-central1-c"
 }
 
 variable "name" {
   description = "Name used for the endpoint and when creating resources like the network and compute_instance."
-  default = "tf-ep-dns"
+  default     = "tf-ep-dns"
 }
