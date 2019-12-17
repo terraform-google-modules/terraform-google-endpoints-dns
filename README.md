@@ -14,6 +14,13 @@ Some example use cases include:
 - Obtaining multiple canonical DNS records scoped within a project for a multi-tennant service deployment, like hosting Jupyter notebooks or Wordpress sites.
 - Creating a programatic DNS record that can be used as a target for a CNAME record of a domain you already own but don't want to update very often.
 
+## Compatibility
+
+This module is meant for use with Terraform 0.12. If you haven't
+[upgraded](https://www.terraform.io/upgrade-guides/0-12.html) and need
+a Terraform 0.11.x-compatible version of this module, the last released
+version intended for Terraform 0.11.x is [1.1.0](https://registry.terraform.io/modules/terraform-google-modules/endpoints-dns/google/1.1.0).
+
 ## Usage
 
 ```hcl
