@@ -2,9 +2,6 @@
 
 [![button](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/terraform-google-modules/terraform-google-endpoints-dns&working_dir=examples/gce-acme&page=shell&tutorial=README.md)
 
-<a href="https://concourse-tf.gcp.solutions/teams/main/pipelines/tf-examples-ep-dns-gce-acme" target="_blank">
-<img src="https://concourse-tf.gcp.solutions/api/v1/teams/main/pipelines/tf-examples-ep-dns-gce-acme/badge" /></a>
-
 This example shows how to create an ACME generated SSL certificate for a GCE instance with a Cloud Endpoints DNS record.
 
 ## Change to the example directory
