@@ -1,8 +1,5 @@
 # Cloud Endpoints DNS Module for Terraform
 
-<a href="https://concourse-tf.gcp.solutions/teams/main/pipelines/tf-ep-dns-regression" target="_blank">
-<img src="https://concourse-tf.gcp.solutions/api/v1/teams/main/pipelines/tf-ep-dns-regression/badge" /></a>
-
 This module creates a [DNS record on the `.cloud.goog` domain](https://cloud.google.com/endpoints/docs/openapi/openapi-dns-configure) using Cloud Endpoints.
 
 The endpoint service is bound to any given IP address and gives you a known DNS record in the form of: `NAME.endpoints.PROJECT.cloud.goog`
