@@ -16,30 +16,31 @@
 
 output "project" {
   description = "The project where the cloud endpoint was created."
-  value       = "${local.project}"
+  value       = local.project
 }
 
 output "external_ip" {
   description = "The value of the external IP the endpoint points to."
-  value       = "${local.external_ip}"
+  value       = local.external_ip
 }
 
 output "endpoint" {
   description = "The name of the DNS record conventional to the Cloud Endpoints format of: NAME.endpoints.PROJECT.cloud.goog. Not dependent on google_endpoints_service resource."
-  value       = "${local.service_name}"
+  value       = local.service_name
 }
 
 output "endpoint_computed" {
   description = "The address of the cloud endpoint. This is computed from the google_endpoints_service resource and can be used to create dependencies between resources."
-  value       = "${google_endpoints_service.default.service_name}"
+  value       = google_endpoints_service.default.service_name
 }
 
 output "config_id" {
   description = "The rollout config ID for the endpoint service."
-  value       = "${google_endpoints_service.default.config_id}"
+  value       = google_endpoints_service.default.config_id
 }
 
 output "name" {
   description = "Name of the cloud endpoints service."
-  value       = "${local.name}"
+  value       = local.name
 }
+
