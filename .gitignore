@@ -4,3 +4,6 @@
 **/terraform.tfvars
 **/terraform.tfplan
 **/values-*.yaml
+
+# tf lock file
+.terraform.lock.hcl
