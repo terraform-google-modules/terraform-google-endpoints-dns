@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0](https://www.github.com/terraform-google-modules/terraform-google-endpoints-dns/compare/v2.0.1...v3.0.0) (2021-11-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* add Terraform 0.13 constraint and module attribution (#11)
+
+### Features
+
+* add Terraform 0.13 constraint and module attribution ([#11](https://www.github.com/terraform-google-modules/terraform-google-endpoints-dns/issues/11)) ([a57bf85](https://www.github.com/terraform-google-modules/terraform-google-endpoints-dns/commit/a57bf8565891f2ecd7304e55e75b36da88eef752))
+
 ### [2.0.1](https://www.github.com/terraform-google-modules/terraform-google-endpoints-dns/compare/v2.0.0...v2.0.1) (2020-02-20)
 
 
