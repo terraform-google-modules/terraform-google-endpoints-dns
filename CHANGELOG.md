@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### [3.0.1](https://github.com/terraform-google-modules/terraform-google-endpoints-dns/compare/v3.0.0...v3.0.1) (2022-05-19)
+
+
+### Bug Fixes
+
+* Remove upper bound on Google provider version ([#15](https://github.com/terraform-google-modules/terraform-google-endpoints-dns/issues/15)) ([b907490](https://github.com/terraform-google-modules/terraform-google-endpoints-dns/commit/b907490f6b82d47280cefe0f6184a5889679ecfa))
+
 ## [3.0.0](https://www.github.com/terraform-google-modules/terraform-google-endpoints-dns/compare/v2.0.1...v3.0.0) (2021-11-15)
 
 
