@@ -58,6 +58,9 @@ module "module-cloudep-dns-prep" {
     endpoint = local.service_name
     project  = local.project
   })
+
+  destroy_cmd_entrypoint = ":"
+  destroy_cmd_body       = ""
 }
 
 resource "google_endpoints_service" "default" {
