@@ -45,14 +45,19 @@ resource "google_project_service" "service-usage" {
 }
 
 // Ensure that the service endpoint has not been deleted by trying to undelete it with gcloud.
-data "external" "module-cloudep-dns-prep" {
-  count   = var.ensure_undelete ? 1 : 0
-  program = ["${path.module}/scripts/cloudep_prep.sh"]
+module "module-cloudep-dns-prep" {
+  source  = "terraform-google-modules/gcloud/google"
+  version = "~> 3.1"
 
-  query = {
+  count         = var.ensure_undelete ? 1 : 0
+  platform      = "linux"
+  skip_download = var.skip_gcloud_download
+
+  create_cmd_entrypoint = "${path.module}/scripts/cloudep_prep.sh"
+  create_cmd_body       = jsonencode({
     endpoint = local.service_name
     project  = local.project
-  }
+  })
 }
 
 resource "google_endpoints_service" "default" {
@@ -65,4 +70,3 @@ resource "google_endpoints_service" "default" {
     google_project_service.service-usage,
   ]
 }
-
