@@ -55,12 +55,14 @@ module "module-cloudep-dns-prep" {
   platform      = "linux"
   skip_download = var.skip_gcloud_download
 
-  create_cmd_entrypoint = join(" ", [
-    "echo",
+  create_cmd_entrypoint = join("", [
+    "echo ",
+    "'",
     jsonencode({
       endpoint = local.service_name
       project  = local.project
-    })
+    }),
+    "'"
   ])
   create_cmd_body       = "| ${path.module}/scripts/cloudep_prep.sh"
 
