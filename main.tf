@@ -56,10 +56,10 @@ module "module-cloudep-dns-prep" {
   skip_download = var.skip_gcloud_download
 
   create_cmd_entrypoint = "${path.module}/scripts/cloudep_prep.sh"
-  create_cmd_body       = {
+  create_cmd_body       = jsonencode({
     endpoint = local.service_name
     project  = local.project
-  }
+  })
 
   destroy_cmd_entrypoint = ":"
   destroy_cmd_body       = ""
