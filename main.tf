@@ -46,8 +46,10 @@ resource "google_project_service" "service-usage" {
 
 // Ensure that the service endpoint has not been deleted by trying to undelete it with gcloud.
 module "module-cloudep-dns-prep" {
-  source  = "terraform-google-modules/gcloud/google"
-  version = "~> 3.1"
+  source = "github.com/djbingham/terraform-google-gcloud?ref=download-gcloud-on-destroy"
+
+  # source  = "terraform-google-modules/gcloud/google"
+  # version = "~> 3.1"
 
   count         = var.ensure_undelete ? 1 : 0
   platform      = "linux"
