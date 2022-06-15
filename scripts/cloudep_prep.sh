@@ -31,9 +31,7 @@ function cleanup() {
 }
 trap cleanup EXIT
 
-if [[ ! -z ${GOOGLE_CREDENTIALS+x} && ! -z ${GOOGLE_PROJECT+x} ]]; then
-  export CLOUDSDK_CONFIG=${TMP_DIR}
-  gcloud auth activate-service-account --key-file - <<<"${GOOGLE_CREDENTIALS}"
+if [[ ! -z ${GOOGLE_PROJECT+x} ]]; then
   gcloud config set project "${GOOGLE_PROJECT}"
 fi
 
