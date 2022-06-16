@@ -51,9 +51,10 @@ module "module-cloudep-dns-prep" {
   # source  = "terraform-google-modules/gcloud/google"
   # version = "~> 3.1"
 
-  count         = var.ensure_undelete ? 1 : 0
-  platform      = "linux"
-  skip_download = var.skip_gcloud_download
+  count                             = var.ensure_undelete ? 1 : 0
+  platform                          = "linux"
+  skip_download                     = var.skip_gcloud_download
+  use_tf_google_credentials_env_var = var.use_tf_google_credentials_env_var
 
   create_cmd_entrypoint = join("", [
     "echo ",
