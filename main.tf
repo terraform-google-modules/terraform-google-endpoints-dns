@@ -70,7 +70,7 @@ module "module-cloudep-dns-prep" {
   destroy_cmd_entrypoint = ":"
   destroy_cmd_body       = ""
 
-  depends_on = [
+  module_depends_on = [
     google_project_service.endpoints,
     google_project_service.service-usage,
   ]
