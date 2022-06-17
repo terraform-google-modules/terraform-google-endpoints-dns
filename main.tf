@@ -84,6 +84,6 @@ resource "google_endpoints_service" "default" {
   depends_on = [
     google_project_service.endpoints,
     google_project_service.service-usage,
-    module.module-cloudep-dns-prep
+    module.module-cloudep-dns-prep.wait
   ]
 }
