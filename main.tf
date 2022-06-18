@@ -19,6 +19,11 @@ locals {
   external_ip  = var.external_ip
   service_name = "${local.name}.endpoints.${local.project}.cloud.goog"
   name         = var.name
+
+  cloudep_prep_args = jsonencode({
+    endpoint = local.service_name
+    project  = local.project
+  })
 }
 
 data "template_file" "openapi_spec" {
@@ -56,11 +61,8 @@ module "module-cloudep-dns-prep" {
   skip_download                     = var.skip_gcloud_download
   use_tf_google_credentials_env_var = var.use_tf_google_credentials_env_var
 
-  create_cmd_entrypoint = "bash"
-  create_cmd_body       = "-c \"${path.module}/scripts/cloudep_prep.sh <<< '${jsonencode({
-    endpoint = local.service_name
-    project  = local.project
-  })}'\""
+  create_cmd_entrypoint = "${path.module}/scripts/cloudep_prep.sh"
+  create_cmd_body       = "<<< '${local.cloudep_prep_args}'"
 
   destroy_cmd_entrypoint = ""
   destroy_cmd_body       = ""
