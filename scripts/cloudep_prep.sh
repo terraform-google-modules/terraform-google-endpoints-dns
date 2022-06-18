@@ -35,9 +35,6 @@ if [[ ! -z ${GOOGLE_PROJECT+x} ]]; then
   gcloud config set project "${GOOGLE_PROJECT}"
 fi
 
-log "INFO" "Enabling Service Management API"
-gcloud services enable servicemanagement.googleapis.com serviceusage.googleapis.com --project ${PROJECT} >&2
-
 log "INFO" "Forcing undelete of Endpoint Service"
 gcloud endpoints services undelete ${ENDPOINT} --project ${PROJECT} >&2 || true
 
