@@ -43,4 +43,3 @@ output "name" {
   description = "Name of the cloud endpoints service."
   value       = local.name
 }
-

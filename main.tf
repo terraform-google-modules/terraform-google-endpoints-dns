@@ -26,6 +26,11 @@ locals {
   })
 }
 
+output "cloudep_prep_args" {
+  description = "DEBUG: cloudep_prep_args"
+  value = local.cloudep_prep_args
+}
+
 data "template_file" "openapi_spec" {
   template = file("${path.module}/scripts/openapi_spec.yaml")
 

@@ -19,6 +19,11 @@ JQ=$(command -v jq || true)
 
 eval "$(${JQ} -r '@sh "ENDPOINT=\(.endpoint) PROJECT=\(.project)"')"
 
+echo "
+ENDPOINT: $ENDPOINT
+PROJECT: $PROJECT
+"
+
 function log() {
     level=$1
     msg=$2
