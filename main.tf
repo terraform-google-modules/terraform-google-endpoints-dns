@@ -66,8 +66,8 @@ module "module-cloudep-dns-prep" {
   skip_download                     = var.skip_gcloud_download
   use_tf_google_credentials_env_var = var.use_tf_google_credentials_env_var
 
-  create_cmd_entrypoint = "bash"
-  create_cmd_body       = "-c \"${path.module}/scripts/cloudep_prep.sh <<< '${local.cloudep_prep_args}'\""
+  create_cmd_entrypoint = "echo"
+  create_cmd_body       = "'${local.cloudep_prep_args}' | ${path.module}/scripts/cloudep_prep.sh"
 
   destroy_cmd_entrypoint = ""
   destroy_cmd_body       = ""
